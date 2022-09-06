@@ -1,0 +1,136 @@
+/* #event-table {
+    width: 1180px;
+    color: #000;
+    border: 2px solid rgb(221, 221, 221);
+}
+
+#event-table tr th, #event-table tr td{
+    text-align: center;
+    display: inline-block;
+    border: 1px solid rgb(64, 158, 255);
+}
+
+#event-table tr #one1 {
+    padding: 20px 60px 20px 35px;
+}
+
+#event-table tr #two2 {
+    padding: 20px 15px 20px 15px;
+}
+
+#event-table tr #three3 {
+    padding: 20px 20px 20px 20px;
+}
+
+#event-table tr #four4 {
+    padding: 20px 50px 20px 50px;
+}
+
+#event-table tr #five5 {
+    padding: 20px 124.5px 20px 125px;
+}
+
+#event-table tr #six6 {
+    padding: 20px 45px 20px 55px;
+}
+
+#event-table tr #seven7 {
+    padding: 20px 20px 20px 20px;
+}
+
+#event-table tr #eight8 {
+    padding: 20px 25px 20px 20px;
+}
+
+#event-table tr td {
+    color: black;
+    background-color: #fff;
+    border-spacing: 0px;
+    font-size: 14px;
+    text-align: center;
+    display: inline-block;
+
+}
+
+#event-table tr #one {
+    width: 156px;
+    height: 25px;
+    border: 2.5px solid rgb(221, 221, 221);
+}
+
+#event-table tr #two {
+    width: 91px;
+    height: 25px;
+    border: 2.5px solid rgb(221, 221, 221)
+}
+
+#event-table tr #three {
+    width: 101px;
+    height: 25px;
+    border: 2.5px solid rgb(221, 221, 221)
+}
+
+#event-table tr #four {
+    width: 161px;
+    height: 25px;
+    border: 2.5px solid rgb(221, 221, 221);
+}
+
+#event-table tr #five {
+    width: 311px;
+    height: 25px;
+    border: 2.5px solid rgb(221, 221, 221);
+}
+
+#event-table tr #six {
+    width: 146.5px;
+    height: 25px;
+    border: 2.5px solid rgb(221, 221, 221);
+}
+
+#event-table tr #seven {
+    width: 87px;
+    height: 25px;
+    border: 2.5px solid rgb(221, 221, 221);
+}
+
+#event-table tr #eight {
+    width: 106px;
+    height: 25px;
+    border: 2.5px solid rgb(221, 221, 221)
+}
+
+
+.surveillance-title {
+    width: 500px;
+    padding: 5px;
+    background-color: rgba(23, 248, 244, 0.6) !important;
+    border-radius: 9px 9px 0 0;
+
+}
+
+.surveillance-table {
+    width: 300px;
+    height: 170px;
+    margin: 10px 10px 30px;
+    max-width: 1180px;
+} */
+.popup-content {
+    max-height: 300px;
+    overflow: auto;
+}
+.envent-table {
+    border-collapse: collapse;
+}
+#event-table tr th, #event-table tr td{
+    text-align: center;
+    border: 1px solid #9d9d9d;
+}
+#event-table tr th {
+    color: white;
+    /* background-color: rgba(64, 158, 255, 0.5); */
+    background-color: rgba(64, 158, 255);
+}
+#event-table tr td {
+    background-color: rgba(64, 158, 255, 0.3);
+}

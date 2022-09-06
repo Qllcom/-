@@ -1,0 +1,129 @@
+.container-close {
+  text-decoration: none;
+  position: absolute;
+  top: 0px;
+  right: 8px;
+  /* content: '✖'; */
+}
+
+/* .container-close:after {
+  content: '✖';
+} */
+
+
+
+#layer-container ul {
+  margin-left: 18px;
+  margin-top: 5px;
+  padding: 0;
+}
+
+/* #layer-container {
+  font-family: PingFang SC;
+} */
+li {
+  list-style: none;
+  /* height: 40px; */
+}
+
+#title>span {
+  float: left;
+  margin-left: 15px;
+  font-family: PingFang SC;
+}
+
+#title {
+  position: relative;
+  cursor: move;
+  height: 30px;
+  line-height: 30px;
+  /* background-color: #409eff; */
+  background-color: rgba(64, 158, 255, 1);
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 13px;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 2px 2px 3px 0 #dcdcdc;
+}
+
+
+#layer-container {
+  position: absolute;
+  left: 10px;
+  top: 85px;
+  width: 200px;
+  padding-bottom: 15px;
+  /* height: 270px; */
+  /* background-color: skyblue; */
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#layer-toggle {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.layer-img {
+  width: 16px;
+  height: 16px;
+}
+
+
+
+
+.map-doc {
+  position: relative;
+  /* display: none; */
+  /* display: block; */
+}
+
+
+
+.triangle-start {
+  position: absolute;
+  top: 8px;
+  left: 3px;
+  width: 0;
+  height: 0;
+  display: block;
+  /* margin-right: 5px; */
+  border-top: 6px solid #c0c4cc;
+  /* border-top: 6px solid transparent; */
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+}
+
+.triangle-active {
+  position: absolute;
+  top: 5px;
+  left: 3px;
+  width: 0;
+  height: 0;
+  display: block;
+  /* margin-right: 5px; */
+  border-top: 6px solid transparent;
+  /* border-top: 6px solid transparent; */
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-left: 6px solid #c0c4cc;
+}
+
+.triangle-box {
+  display: inline-block;
+  width: 15px;
+  height: 10px;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+/* .triangle::after {
+  background-color: red;
+} */

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/3.4.1/css/bootstrap.css" />
+    <script src="https://lib.baomitu.com/jquery/3.6.0/jquery.js"></script>
+    <script src="./lib/include-openlayers-local.js"></script>
+    <script src="./js/interaction.js"></script>
+    <script src="./js/zd_docEdit.class.js"></script>
+    <script src="./js/style.js"></script>
+    <script src="./js/tiandimap.js"></script>
+    <script src="./js/login.js"></script>
+    <link rel="stylesheet" href="./css/control.css">
+    <link rel="stylesheet" href="./css/leftDirectory.css">
+    <link rel="stylesheet" href="./css/vedio.css">
+    <link rel="stylesheet" href="./css/eventTable.css">
+
+    <link rel="stylesheet" href="./css/nav.css">
+    <style>
+        #mapCon {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        /* * {
+            margin: 0;
+            padding: 0;
+        } */
+    </style>
+</head>
+
+<body>
+    <nav class="navbar-default nav-top navbar-inverse nav-line nav-bg">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header logo-header">
+                <a class="navbar-brand logo" href="#">
+                    <img alt="logo" src="./images/logo2.png">
+                </a>
+                <!-- <h3>光谷智慧交通系统</h3> -->
+                <p class="navbar-text">光谷智慧交通系统</p>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li onclick="add()"><a href="#">添加事件 </a></li>
+                    <li onclick="edit()"><a href="#">修改事件 </a></li>
+                    <li onclick="query()"><a href="#">查询事件 </a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">删除事件 </a>
+                        <ul class="dropdown-menu">
+                            <li onclick="del()"><a href="#">单个删除</a></li>
+                            <li onclick="dels()"><a href="#">批量删除</a></li>
+                        </ul>
+                    </li>
+                    <li onclick="activeVideo()"><a href="#">查看监控 </a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">测量 </a>
+                        <ul class="dropdown-menu s-h">
+                            <li class="measuer-list">
+                                <a href="#" onclick="Measure({MeasureType:'LineString'})">开始测量 </a>
+                                <ul class="measuer-list-1">
+                                    <li>
+                                        <a href="#" onclick="Measure({MeasureType:'LineString'})">测量长度 </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onclick="Measure({MeasureType:'Polygon'})">测量面积 </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" onclick="removeMeasure()">结束测量</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">工具箱 <span class="caret"></span></a>
+                        <ul class="dropdown-menu s-h">
+                            <!-- <li><a href="#" onclick="allSwitch()">一键恢复</a></li> -->
+                            <li><a href="#" onclick="show()">图层目录</a></li>
+                            <li><a href="#" onclick="overview()">鹰眼工具 </a></li>
+                            <li><a href="#" onclick="scalel()">比例尺</a></li>
+                            <li><a href="#" onclick="mousep()">鼠标位置</a></li>
+                            <li><a href="#" onclick="zoomInOn()">放大缩小</a></li>
+                            <li><a href="#" onclick="zoomtoext()">复位工具</a></li>
+                            <li><a href="#" onclick="zs()">滑块工具</a></li>
+                            <li><a href="#" onclick="layerSwitch()">底图切换</a></li>
+                            <li class="measuer-list">
+                                <a href="#">全选工具</a>
+                                <ul class="measuer-list-1">
+                                    <li>
+                                        <a href="#" onclick="allShow()">全部显示</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onclick="allHide()">全部隐藏</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right hidden">
+                    <li><button type="button" class="btn btn-default navbar-btn top-button" onclick="window.location.href='./login.html'">登录</button></li>
+                    <!-- <li><button type="button" class="btn btn-default navbar-btn">Sign up</button></li> -->
+                    <li>
+                        <div style="width: 80px; height: 40px; margin-top: 4px;">
+                            <div style="width: 40px; height: 40px; border-right: 2px solid #9d9d7d;"></div>
+                        </div>
+                    </li>
+                    <li><button type="button" class="btn btn-default navbar-btn top-button" onclick="window.location.href='./login.html'">注册</button></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">你好，张三</a>
+                        <ul class="dropdown-menu s-h">
+                            <li class="measuer-list">
+                                <a href="#" onclick="window.location.href='./login.html'">修改密码</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="window.location.href='./login.html'">退出登录</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- <div class="nav-line"></div> -->
+    <div id="mapCon">
+        <!-- 导航栏 -->
+        <!-- 鼠标位置 -->
+        <div id="mouse-position" class="mouse-position"></div>
+    </div>
+    <!-- 图层切换 -->
+    <div class="maplist">
+        <div class="map_vec">
+            <img src="./images/m1.png" alt="" style="width: 100%" />
+        </div>
+        <div class="map_img">
+            <img src="./images/m2.png" alt="" style="width: 100%" />
+        </div>
+    </div>
+    <!-- 左侧目录 -->
+    <div id="layer-container" class="layer-container show">
+        <div id="title">
+            <span>图层目录</span>
+            <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+            <div class="container-close">✖</div>
+        </div>
+        <ul class="map-doc1 show">
+            <li class="map-doc">
+                <div class="triangle-box">
+                    <span class="triangle-1 triangle-start"></span>
+                </div>
+                <input type="checkbox" class="s-input" disabled checked>地图文档
+            </li>
+            <ul class="map-doc2 show">
+                <li class="map-doc">
+                    <div class="triangle-box">
+                        <span class="triangle-2 triangle-start"></span>
+                    </div>
+                    <input type="checkbox" class="s-input" disabled checked>新地图1
+                </li>
+                <ul id="layer-list" class="layer-list layer-show">
+                    <li>
+                        <input type="checkbox" checked /><img src="./images/polygon.png" alt="img" class="layer-img">
+                        居民区
+                    </li>
+                    <li><input type="checkbox" checked /><img src="./images/line.png" alt="img" class="layer-img">武汉光谷道路
+                    </li>
+                    <li><input type="checkbox" checked /><img src="./images/point.png" alt="img" class="layer-img">警务室
+                    </li>
+                    <li><input type="checkbox" checked /><img src="./images/point.png" alt="img" class="layer-img">摄像头
+                    </li>
+                    <li><input type="checkbox" checked /><img src="./images/point.png" alt="img" class="layer-img">事件
+                    </li>
+                </ul>
+            </ul>
+        </ul>
+    </div>
+    <!-- 查看监控popup弹窗 -->
+    <div id="popup" class="ol-popup">
+        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content">      
+            <table>
+                <tr>
+                    <th>路口监控</th>
+                    <td id="arr"></td>
+                </tr>
+            </table>
+            <video src="" controls></video>
+        </div>
+    </div>
+    <!-- 添加数据弹窗 -->
+    <div id="addEvent-popup" class="ol-popup">
+        <!-- <div class="popup-title" style="color:#fff">
+            添加事件<a href="#" id="add-event-closer" class="ol-popup-closer"></a>
+        </div>
+        <div id="add-event-content">
+            <table class="" width="400">
+                <tr>
+                    <th>事件编号</th>
+                    <td><input type="text" class="form-control" placeholder="请输入事件编号" id="focus1"></td>
+                </tr>
+                <tr>
+                    <th>事件类型</th>
+                    <td>
+                        <input class="form-control" list="sites1" placeholder="碰撞" id="focus2">
+                        <datalist id="sites1">
+                            <option value="碰撞">
+                            <option value="刮擦">
+                            <option value="失火">
+                            <option value="翻车">
+                            <option value="碾压">
+                            <option value="其他">
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <th>事件等级</th>
+                    <td>
+                        <input class="form-control" list="sites2" placeholder="轻微事故" id="focus3">
+                        <datalist id="sites2">
+                            <option value="轻微事故">
+                            <option value="一般事故">
+                            <option value="重大事故">
+                            <option value="特大事故">
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <th>发生时间</th>
+                    <td>
+                        <input type="text" class="form-control" id="focus4">
+                    </td>
+                </tr>
+                <tr>
+                    <th>发生地点</th>
+                    <td>
+                        <input type="text" class="form-control" placeholder="请输入发生地点" id="focus5">
+                    </td>
+                </tr>
+                <tr>
+                    <th>车牌号</th>
+                    <td>
+                        <input type="text" class="form-control" placeholder="请输入车牌号" id="focus6">
+                    </td>
+                </tr>
+                <tr>
+                    <th>驾驶员</th>
+                    <td>
+                        <input type="text" class="form-control" placeholder="请输入驾驶员" id="focus7">
+                    </td>
+                </tr>
+                <tr>
+                    <th>处理状态</th>
+                    <td>
+                        <input class="form-control" list="sites3" placeholder="未处理" id="focus8">
+                        <datalist id="sites3">
+                            <option value="未处理">
+                            <option value="忽略">
+                            <option value="通过">
+                        </datalist>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="addevent-footer"> <button onclick="handleaddEvent()">提交</button><button
+                onclick="addeventCancle()">取消</button></div> -->
+    </div>
+    <!-- 查询事件弹窗 -->
+    <div id="query-popup" class="ol-popup">
+        <div class="popup-title" style="background-color: white; color: #000;">
+            光谷智慧交通提醒您：道路千万条，安全第一条！<a href="#" id="query-popup-closer" class="ol-popup-closer"></a>
+        </div>
+        <div id="popup-content" class="popup-content">
+            <!--  -->
+            <table id="event-table" class="event-table" width="800px">
+            </table>
+        </div>
+    </div>
+    <script>
+        const docLayer = new Zondy.Map.Doc('', 'traffic', {
+            host: 'localhost',
+            port: 6163,
+            crossOrigin: 'Anonymous',
+        })
+        /* 实例化地图容器,加载天地图的图层 */
+        var map = new ol.Map({
+            target: 'mapCon',
+            layers: [TiandiMap_img, TiandiMap_cia, TiandiMap_vec, TiandiMap_cva],
+            view: new ol.View({
+                // center: [114.38, 30.49],
+                center: ol.extent.getCenter([
+                    114.321103824701, 30.4545175015849, 114.417985804936,
+                    30.5289619425023,
+                ]),
+                projection: 'EPSG:4326',
+                zoom: 13,
+            }),
+        })
+        map.addLayer(docLayer)
+    </script>
+    <script src="https://lib.baomitu.com/twitter-bootstrap/3.4.1/js/bootstrap.js"></script>
+    <!-- 地图控件 -->
+    <script src="./js/mapControl.js"></script>
+    <!-- 目录树 -->
+    <script src="./js/leftDirectory.js"></script>
+    <!-- 测量 -->
+    <script src="./js/mapMeasure.js"></script>
+    <!-- 视频监控 -->
+    <script src="./js/vedio.js"></script>
+    <!-- 添加事件 -->
+    <script src="./js/addEvent.js"></script>
+    <!-- 修改事件 -->
+    <script src="./js/editEvent.js"></script>
+    <!-- 查询事件弹窗 -->
+    <script src="./js/queryEvent.js"></script>
+    <!-- 删除事件 -->
+    <script src="./js/delEvent.js"></script>
+</body>
+
+</html>

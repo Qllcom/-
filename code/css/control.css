@@ -1,0 +1,192 @@
+/* 鼠标位置控件 */
+
+#mouse-position {
+  position: fixed;
+  left: 82px;
+  /* bottom: 8px; */
+  bottom: 15px;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 24px;
+  z-index: 1000;
+  background-color: rgba(64, 158, 255);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.custom-mouse-position {
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  line-height: 24px;
+  font-family: '微软雅黑';
+}
+
+/* 比例尺 */
+.ol-scale-line {
+  background-color: rgba(64, 158, 255);
+  position: fixed;
+  bottom: 56px;
+  /* font-size: 20px; */
+}
+
+.decline {
+  bottom: 15px;
+}
+
+/* 放大缩小 */
+.ol-zoom {
+  top: 25px;
+  right: 20px;
+  left: auto;
+  /* background-color: rgba(64, 158, 255); */
+}
+
+.ol-zoom button {
+  background-color: rgba(64, 158, 255);
+}
+
+/* 复位 */
+.ol-zoom-extent {
+  top: 74px;
+  right: 20px;
+  left: auto;
+  /* background-color: rgba(64, 158, 255); */
+}
+
+.ol-zoom-extent button {
+  background-color: rgba(64, 158, 255);
+}
+
+/* 底图切换 */
+.map_img {
+  position: fixed;
+  z-index: 1002;
+  right: 15px;
+  left: auto;
+  top: auto;
+  bottom: 15px;
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border: 3px solid rgba(250, 250, 250);
+  cursor: pointer;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.map_vec {
+  position: fixed;
+  z-index: 1002;
+  right: 100px;
+  left: auto;
+  top: auto;
+  bottom: 15px;
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border: 3px solid rgba(250, 250, 250);
+  cursor: pointer;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+/* 测量工具 */
+.tooltip {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  color: white;
+  padding: 4px 8px;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.tooltip-measure {
+  opacity: 1;
+  font-weight: bold;
+}
+
+.tooltip-static {
+  background-color: rgb(64, 158, 255);
+  color: black;
+  border: 1px solid white;
+}
+
+.tooltip-measure:before,
+.tooltip-static:before {
+  border-top: 6px solid rgba(0, 0, 0, 0.5);
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  margin-left: -7px;
+  left: 50%;
+}
+
+.tooltip-static:before {
+  border-top-color: rgb(64, 158, 255);
+}
+
+/*=S 自定义鹰眼样式 */
+.ol-custom-overviewmap,
+.ol-custom-overviewmap.ol-uncollapsible {
+  bottom: auto;
+  left: auto;
+  /* 右侧显示 */
+  left: 10px;
+  /* 顶部显示 */
+  bottom: 150px;
+}
+
+/* 鹰眼控件展开时控件外框的样式 */
+.ol-custom-overviewmap:not(.ol-collapsed) {
+  border: 3px solid rgb(64, 158, 255);
+}
+
+/* 鹰眼控件中地图容器样式 */
+.ol-custom-overviewmap .ol-overviewmap-map {
+  border: none;
+  width: 300px;
+}
+
+/* 鹰眼控件中显示当前窗口中主图区域的边框 */
+.ol-custom-overviewmap .ol-overviewmap-box {
+  border: 2px solid rgb(64, 158, 255);
+}
+
+/* 鹰眼控件展开时其控件按钮图标的样式 */
+.ol-custom-overviewmap:not(.ol-collapsed) button {
+  bottom: auto;
+  left: auto;
+  right: 1px;
+  top: 1px;
+}
+
+/*=E 自定义鹰眼样式 */
+
+/* 滑块控件 */
+.ol-zoomslider {
+  top: 4.5em;
+  right: 20px;
+  left: auto;
+  height: 200px;
+  margin-top: 40px;
+  background-color: rgba(64, 158, 255, 0.2);
+}
+
+.ol-zoom-extent button:hover,
+.ol-zoomslider button:hover,
+.ol-zoomslider button,
+.ol-zoom button:hover
+{
+background-color: rgba(64, 158, 255);
+}
+
+/* .ol-control {
+  background-color: rgba(64, 158, 255, 0.4);
+} */
+.ol-control:hover {
+  background-color: rgba(64, 158, 255, 0.4);
+}
